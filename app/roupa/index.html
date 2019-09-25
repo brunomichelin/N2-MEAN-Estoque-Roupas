@@ -1,0 +1,81 @@
+<h1>Estoque de Roupas</h1>
+<div class="form-container">
+    <div class="form-group">
+        <label >Código</label>
+        <input type="text" style="background: #ff5;" id="cod_item" class="form-control" ng-model="vm.item.cod_item" ng-disabled="vm.atualizando" required />
+    </div>
+    <div class="form-group">
+        <label >Data de Entrada</label>
+        <input type="text" style="background: #ff5;" id="data" class="form-control" ng-model="vm.item.data" required />
+    </div>
+    <div class="form-group">
+        <label >Tipo</label>
+        <input type="text" style="background: #ff5;" id="tipo" class="form-control" ng-model="vm.item.tipo" required />
+    </div>
+    <div class="form-group">
+        <label >Marca</label>
+        <input type="text" style="background: #ff5;" id="marca" class="form-control" ng-model="vm.item.marca" />
+    </div>
+    <div class="form-group">
+        <label >Características</label>
+        <input type="textarea" style="background: #ff5;" id="caracteristicas" class="form-control" ng-model="vm.item.caracteristicas" required />
+    </div>
+    <div class="form-group">
+        <label >Tamanho</label>
+        <input type="text" style="background: #ff5;" id="tamanho" class="form-control" ng-model="vm.item.tamanho" required />
+    </div>
+    <div class="form-group">
+        <label >Cor</label>
+        <input type="text" style="background: #ff5;" id="cor" class="form-control" ng-model="vm.item.cor" required />
+    </div>
+    <div class="form-group">
+        <label >Valor da etiqueta</label>
+        <input type="text" style="background: #ff5;" id="valor_etiqueta" class="form-control" ng-model="vm.item.valor_etiqueta" />
+    </div>
+    <div class="form-group">
+        <label >Valor pago</label>
+        <input type="text" style="background: #ff5;" id="valor_compra" class="form-control" ng-model="vm.item.valor_compra" required />
+    </div>
+    <div class="form-group">
+        <label >Valor sugerido</label>
+        <input type="text" style="background: #ff5;" id="valor_sugerido" class="form-control" ng-model="vm.item.valor_sugerido" />
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary" ng-click="vm.saveItem()">Salvar</button>
+        <button class="btn btn-primary" ng-click="vm.Cancel()">Cancelar</button>
+    </div>
+
+    <table ng-if="!vm.atualizando" style="background-color: aquamarine; border-style: dotted;">         
+        <tr>
+            <th>código</th>
+            <th>data Entrada</th>
+            <th>Tipo</th>
+            <th>Marca</th>
+            <th>Características</th>
+            <th>Tamanho</th>
+            <th>Cor</th>
+            <th>Valor etiqueta</th>    
+            <th>Valor pago</th>
+            <th>Valor margem</th>
+            <th>Preço sugerido</th>    
+            <th>ação</th>
+        </tr>
+        <tr ng-repeat ="Item in vm.listItem" > 
+            <td>{{Item.cod_item}}</td>
+            <td>{{Item.data}}</td>
+            <td>{{Item.tipo}}</td>
+            <td>{{Item.marca}}</td>
+            <td>{{Item.caracteristicas}}</td>
+            <td>{{Item.tamanho}}</td>
+            <td>{{Item.cor}}</td>
+            <td>{{Item.valor_etiqueta}}</td>
+            <td>{{Item.valor_compra}}</td>
+            <td>{{Item.valor_margem}}</td>
+            <td>{{Item.valor_sugerido}}</td>
+            <td>
+                <button class="btn btn-primary" ng-click="vm.deleteItem(Item)">Delete</button>
+                <button class="btn btn-primary" ng-click="vm.UpdateItem(Item)">Update</button>        
+            </td>
+        </tr>
+    </table>        
+</div>
